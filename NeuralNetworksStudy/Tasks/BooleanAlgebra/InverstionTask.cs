@@ -1,31 +1,26 @@
 ﻿using NeuralNetworksStudy.Entities;
 
-namespace NeuralNetworksStudy.Tasks.BooleanAlgebra
-{
-    public class InverstionTask : AbstractTask
-    {
+namespace NeuralNetworksStudy.Tasks.BooleanAlgebra {
+	public class InverstionTask : AbstractTask {
 
-        public override void Run()
-        {
-            var b = 1f;
-            var inputs = new float[2] { 0, 1 };
-            var weight = -1f;
-            var dendrits = new Dendrit[1] { new Dendrit(inputs[0], weight) };
+		public override void Run() {
+			var b = 1f;
+			var testDataSets = new List<int>() { 0, 1 };
+			var weight = -1f;
+			var dendrits = new Dendrit[1] { new Dendrit() { Weight = weight } };
 
-            var neuron = new Neuron()
-            {
-                Dendrits = dendrits,
-                Offset = b
-            };
+			var neuron = new Neuron() {
+				Dendrits = dendrits,
+				Offset = b
+			};
 
-            var result0 = neuron.Calc();
+			testDataSets.ForEach(dataSet => {
+				var dendrit = dendrits.First();
+				dendrit.Input = dataSet;
 
-            dendrits.First().Input = inputs[1];
-
-            var result1 = neuron.Calc();
-
-            Console.WriteLine($"{inputs[0]}-({weight})->[∑ b={b}]->{result0}");
-            Console.WriteLine($"{inputs[1]}-({weight})->[∑ b={b}]->{result1}");
-        }
-    }
+				var result = neuron.Calc();
+				Console.WriteLine($"{dendrit.Input}-({dendrit.Weight})->[∑ b={neuron.Offset}]->{result}");
+			});
+		}
+	}
 }

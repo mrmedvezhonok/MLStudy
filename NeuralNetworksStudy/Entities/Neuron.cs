@@ -11,11 +11,11 @@ namespace NeuralNetworksStudy.Entities {
 		}
 
 		private float Sum() {
-			if (Dendrits is null || !Dendrits.Any()) throw new NeuronIsInvalidException("Dendrits was not defined.");
+			if (Dendrits is null || !Dendrits.Any() || Dendrits.Any(d => !d.Input.HasValue || !d.Weight.HasValue)) throw new NeuronIsInvalidException("Dendrits was not defined.");
 
 			var result = 0f;
 			foreach (var dendrit in Dendrits) {
-				result += dendrit.Input * dendrit.Weight;
+				result += dendrit.Input!.Value * dendrit.Weight!.Value;
 			}
 			result += Offset;
 			return result;

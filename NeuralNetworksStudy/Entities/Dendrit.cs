@@ -1,11 +1,8 @@
 ﻿namespace NeuralNetworksStudy.Entities {
 	public class Dendrit {
-		public float Input { get; set; }
-		public float Weight { get; set; }
+		public float? Input { get; set; } = null!;
+		public float? Weight { get; set; } = null!;
 
-		public Dendrit(float input, float weight) {
-			Input = input;
-			Weight = weight;
-		}
+		public Dendrit() { }
 	}
 }

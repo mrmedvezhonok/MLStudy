@@ -1,9 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-using NeuralNetworksStudy.Entities;
-using NeuralNetworksStudy.Tasks;
+﻿using NeuralNetworksStudy.Tasks;
+using NeuralNetworksStudy.Tasks.BooleanAlgebra;
 
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 Console.WriteLine("Hey 👋");
 
-AbstractTask task = new BooleanAlgebraInversionTask();
+AbstractTask task = new InverstionTask();
 task.Run();
