@@ -11,15 +11,14 @@ namespace NeuralNetworksStudy.Tasks.BooleanAlgebra {
 				new float[] { 1, 1 },
 			};
 
-			Console.WriteLine("X1 | X2 | Xor");
+			Console.WriteLine("_______________");
+			Console.WriteLine("|X1 | X2 | XOR|");
+			Console.WriteLine("_______________");
 			dataSets.ForEach(dataSet => {
-				Console.WriteLine("\n______________________________________________________________________");
-				Console.WriteLine("Test");
-				Console.WriteLine("______________________________________________________________________");
-
 				var result = CalcNetwork(dataSet);
-				Console.WriteLine($"{dataSet[0]}  | {dataSet[1]}  | {result}");
+				Console.WriteLine($"| {dataSet[0]} |  {dataSet[1]} |  {result} |");
 			});
+			Console.WriteLine("_______________");
 		}
 
 		private float CalcNetwork(float[] inputs) {
