@@ -8,6 +8,7 @@ var tasks = new List<AbstractTask>() {
 	new InverstionTask(),
 	new AndTask(),
 	new OrTask(),
+	new XorTask(),
 };
 
 tasks.Last().Run();
