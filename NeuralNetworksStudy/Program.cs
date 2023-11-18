@@ -6,7 +6,8 @@ Console.WriteLine("Hey 👋");
 
 var tasks = new List<AbstractTask>() {
 	new InverstionTask(),
-	new AndTask()
+	new AndTask(),
+	new OrTask(),
 };
 
-tasks.ElementAt(1).Run();
+tasks.Last().Run();
